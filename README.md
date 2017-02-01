@@ -5,8 +5,9 @@ mithril.js learning repo
 start on Feb 1, 2017 
 
 ## plan
-* setup with webpack (http://mithril.js.org/installation.html)
-* hello world
+* setup with webpack 
+* hello world [01-04](http://mithril.js.org/installation.html)
+* introduction [05-??](http://mithril.js.org/index.html)
 * todo mvc
 * a few more
 * threadit.js
@@ -35,3 +36,9 @@ start on Feb 1, 2017
 * `npm install budo -g` to install budo live reload
 * `webpack index.js app.js -p && bodu --live --open index.js` is manual command to run
 * can do `npm init --yes` then add this script to "scripts" section of package.json (see source code)
+
+### 05 DOM elements
+* such as H1,H2,H3,P ....
+* m("h1","text") to create h1. e.g. m.render(document.body, m("h1","hello"))
+* can add attribute inside {} `m("h1",{class:"title"},"title text")
+* can put multiple element in array `[m("h1","first"),m("h2","second")]
