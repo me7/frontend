@@ -1,0 +1,16 @@
+{
+  "name": "04-live-reload",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "mithril": "^1.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "webpack index.js app.js && budo --live --open index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

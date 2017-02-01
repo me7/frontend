@@ -29,5 +29,9 @@ start on Feb 1, 2017
 ### 03 component
 * you can create component in separate file and use `module.exports = {}`
 * inside exports. minimum requirement for component is view `view: function(){return "hello from module"}`
+* use m.mount instead of m.render for component, so it's can auto-redraw
 
-### 04
+### 04 live reload *NOT WORK ON WINDOWS AS I TRY IT*
+* `npm install budo -g` to install budo live reload
+* `webpack index.js app.js -p && bodu --live --open index.js` is manual command to run
+* can do `npm init --yes` then add this script to "scripts" section of package.json (see source code)
