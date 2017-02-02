@@ -47,7 +47,11 @@ Note:
 * can add attribute inside {} `m("h1",{class:"title"},"title text")
 * can put multiple element in array `[m("h1","first"),m("button","second")]
 
-### 06 component
+### 06 component and 07 component event
 * component is just object that have view function {view: function(){return "v"}}
 * can specify event (e.g. onclick) by provide object to 2nd parameter m("button",{onclick:xxxx},"text")
 * #ASK how to combine object? (like combine btHello and btCount in sample code)
+
+### 08 routing
+* use m.route(div,default,{routes list}) -- see example in code
+
