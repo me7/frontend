@@ -8,11 +8,15 @@ start on Feb 1, 2017
 * setup with webpack 
 * hello world [01-04](http://mithril.js.org/installation.html)
 * introduction [05-??](http://mithril.js.org/index.html)
+* exam 1: 10*10 tile grid with green or red background (pass/fail) which random update every second (1-5 tile). each updated tile have glow effect
 * todo mvc
 * a few more
 * threadit.js
 
   Then start real project. real time WIP dashboard
+
+Note:
+* mithril.min.js and node_modules just move around each folder, please copy back
 
 ### 01 plain js
 * run using minimum requirement. Just 1 html and 1 javascript file
@@ -41,4 +45,9 @@ start on Feb 1, 2017
 * such as H1,H2,H3,P ....
 * m("h1","text") to create h1. e.g. m.render(document.body, m("h1","hello"))
 * can add attribute inside {} `m("h1",{class:"title"},"title text")
-* can put multiple element in array `[m("h1","first"),m("h2","second")]
+* can put multiple element in array `[m("h1","first"),m("button","second")]
+
+### 06 component
+* component is just object that have view function {view: function(){return "v"}}
+* can specify event (e.g. onclick) by provide object to 2nd parameter m("button",{onclick:xxxx},"text")
+* #ASK how to combine object? (like combine btHello and btCount in sample code)

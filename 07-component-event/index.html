@@ -1,0 +1,33 @@
+<html>
+    <body>
+        <script src="mithril.min.js"></script>
+        <script>
+            var s = "btHello"
+            function change_text(){s = s.split('').reverse().join('')}
+            var btHello = {
+                view: function() {
+                    return m("button",{onclick: change_text}, s)
+                }
+            }
+
+            var c = 0
+            var btCount = {
+                view: function(){
+                    return m("button",{onclick: function(){c++}}, c+" clicks")
+                }
+            }
+
+            var btDuo = {
+                view: function(){
+                    return m("main",[
+                        m("button",{onclick: change_text},s),
+                        m("button",{onclick: function(){c++}},c+" click")
+                    ])
+                }
+            }
+            
+            var root = document.body
+            m.mount(root,btDuo)
+        </script>
+    </body>
+</html>
