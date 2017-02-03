@@ -50,8 +50,14 @@ Note:
 ### 06 component and 07 component event
 * component is just object that have view function {view: function(){return "v"}}
 * can specify event (e.g. onclick) by provide object to 2nd parameter m("button",{onclick:xxxx},"text")
-* #ASK how to combine object? (like combine btHello and btCount in sample code)
+* to combine object? (like combine btHello and btCount) use m("",[m(btHello),m(btCount)])
 
 ### 08 routing
 * use m.route(div,default,{routes list}) -- see example in code
 
+### 09 [xhr = talk to server](http://stackoverflow.com/questions/4657287/what-is-the-difference-between-xmlhttprequest-jquery-ajax-jquery-post-jquery)
+* use [REM](http://rem-rest-api.herokuapp.com/) as a server
+* use m.request({})
+* parameter of {object} -> method, url, data, ... [see more](http://mithril.js.org/request.html)
+* it's return [Promise](http://mithril.js.org/promise.html) so you can use .then .catch .all
+* #WHY always get "Item not found" when query (nothing in cookie)

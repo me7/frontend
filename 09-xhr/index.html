@@ -1,0 +1,45 @@
+<html>
+<body>
+<script src="mithril.min.js"></script>
+<script>
+    var count=0, count1 = 0
+
+    var get_count = function(){
+        m.request("http://rem-rest-api.herokuapp.com/api/counter/1")
+            .then(function(data){
+            console.log(data)
+                console.log(data)
+                count1 = parseInt(data.count)
+                console.log("count1 = " + count1)
+            })
+    }
+
+    var count_up = function(){
+        //count++
+        m.request({
+            method: "PUT",
+            url: "http://rem-rest-api.herokuapp.com/api/counter/1",
+            data: {"count": count+1},
+            useCredentials: true,
+        })
+        .then(function(data){
+                console.log(data)
+                count = parseInt(data.count)
+                console.log("count = " + count)
+        })
+    }
+
+    var btHello = {
+        view: function(){
+            return m("",[
+                m("button",{onclick: count_up}, count+" put"),
+                m("br"),
+                m("button",{onclick: get_count}, count1+" get")
+            ])
+        }
+    }
+
+    m.mount(document.body, btHello)
+</script>
+</body>
+</html>

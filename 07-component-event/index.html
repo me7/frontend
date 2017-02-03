@@ -25,9 +25,15 @@
                     ])
                 }
             }
-            
+
+            var btCombine = {
+                view: function(){
+                    return m("",[m(btHello),m("p"),m(btCount)])
+                }
+            }
+
             var root = document.body
-            m.mount(root,btDuo)
+            m.mount(root,btCombine)
         </script>
     </body>
 </html>
