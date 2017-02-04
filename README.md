@@ -61,3 +61,9 @@ Note:
 * parameter of {object} -> method, url, data, ... [see more](http://mithril.js.org/request.html)
 * it's return [Promise](http://mithril.js.org/promise.html) so you can use .then .catch .all
 * #WHY always get "Item not found" when query (nothing in cookie)
+
+
+### 10 [tutorial part 1](http://mithril.js.org/simple-application.html)
+* it's same as link above, just all in one file
+* mithril event name is all lower case. e.g. onclick, oninit
+* In User.loadList used to try this.list = [....] but not work. have to use User.list =[...]
