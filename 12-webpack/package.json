@@ -1,0 +1,16 @@
+{
+  "name": "12-webpack",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "dependencies": {
+    "mithril": "^1.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "webpack src/index.js app.js -w"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
