@@ -1,0 +1,35 @@
+<html>
+<head>
+<style>
+table{border-collapse: collapse}
+td{border: 1px solid black; padding: 10px}
+td.fail{background-color: red; color: white}
+td.pass{background-color: green; color: white}
+</style>
+</head>
+
+<body>
+<script src="../mithril.js"></script>
+
+<script>
+var Box = {
+    rand: function(){return Math.random() <= 0.5 ? "td.fail" : "td.pass"},
+    view: function(){
+        return m("table",[
+            m("tr",[
+                m(this.rand(),"A"),
+                m(this.rand(),"B")
+            ]),
+            m("tr",[
+                m(this.rand(),"C"),
+                m(this.rand(),"D")
+            ]),
+        ])
+    }
+}
+
+m.mount(document.body,Box)
+</script>
+
+</body>
+</html>

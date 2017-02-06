@@ -1,0 +1,8 @@
+.user-list-item{border: 1px solid #999; padding: 8px}
+.user-list-item:hover{text-decoration: underline}
+
+body,.input,.button{font:normal 16px Consolas; margin: 0px}
+.label{display: block; margin: 0 0 5px}
+.input{display:block; margin: 0 0 10px; border-radius: 3px; }
+.button{border: 1px solid; border-radius: 3px;background:#eee;color:#333;padding: 10px 10px}
+.button:hover{background:#a8a8a8}

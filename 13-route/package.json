@@ -1,0 +1,16 @@
+{
+  "name": "13-route",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack src/index.js app.js -w"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "mithril": "^1.0.0"
+  },
+  "devDependencies": {},
+  "description": ""
+}

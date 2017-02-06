@@ -81,3 +81,14 @@ Note:
 * for require relative path, use ./ for current directory. e.g. var UserList = require("./view/UserList)
 * m.render(vnodes) but m.mount(component)
 * <link href="styles.css" rel="stylesheet" /> have to put in <head> tag
+
+### 13 route
+* make /list and /edit/:id route
+* some CSS knownledge
+ * display: block = like p tag that have new line
+ * boder: 1px solid #ddd = add 1 pixel border
+ * border-radius: 3px = curve at border
+ * padding: direction is clockwise at 0,3,6,9 PM
+
+### 14  grid
+* just a simpel 2*2 grid (part of exam 1)
