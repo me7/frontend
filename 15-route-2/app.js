@@ -1230,7 +1230,7 @@ m.vnode = Vnode
 if (true) module["exports"] = m
 else window.m = m
 }
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(6).setImmediate, __webpack_require__(1)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(7).setImmediate, __webpack_require__(1)))
 
 /***/ }),
 /* 1 */
@@ -1265,13 +1265,52 @@ module.exports = g;
 
 var m = __webpack_require__(0)
 
+var User = {
+    list: [],
+    loadList: function(){
+        //User.list = [{"firstName":"John", "lastName":"Doe"},{"firstName":"Marry","lastName":"Me"}]
+        return m.request({
+            method: "GET",
+            url: "http://rem-rest-api.herokuapp.com/api/users",
+            withCredentials: true
+        })
+        .then(function(result){
+            User.list = result.data
+        })
+    },
+    current: {},
+    load: function(id){
+        m.request({
+            method: "GET",
+            url: "http://rem-rest-api.herokuapp.com/api/users/:id",
+            data: {id: id},
+            withCredentials: true,
+        })
+        .then(function(result){
+            User.current = result
+        })
+    }
+}
+
+module.exports = User
+
+/***/ }),
+/* 3 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var m = __webpack_require__(0)
+var User = __webpack_require__(2)
+
 UserForm = {
+    oninit: function(vnode){
+        User.load(vnode.attrs.id)
+    },
     view: function(){
         return m("form",[
             m("label.label","First Name"),
-            m("input.input[type=text][placeholder=First Name]"),
+            m("input.input[type=text][placeholder=First Name]",{value: User.current.firstName}),
             m("label.label","Last Name:"),
-            m("input.input[placeholder=Last Name]"),
+            m("input.input[placeholder=Last Name]",{value: User.current.lastName}),
             m("button.f6.link.dim.br3.ph3.pv2.mb2.dib.white.bg-dark-green[type=submit]","save")
         ])
     }
@@ -1280,23 +1319,23 @@ UserForm = {
 module.exports = UserForm
 
 /***/ }),
-/* 3 */
+/* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var m = __webpack_require__(0)
-var User = __webpack_require__(7)
+var User = __webpack_require__(2)
 
 module.exports = {
     oninit: User.loadList,
     view: function(){
         return m(".user-list",User.list.map(function(u){
-            return m(".user-list-item",u.firstName+" "+u.lastName)
+            return m("a.user-list-item.db",{href: "/edit/"+u.id, oncreate: m.route.link},u.firstName+" "+u.lastName)
         }))
     }
 }
 
 /***/ }),
-/* 4 */
+/* 5 */
 /***/ (function(module, exports) {
 
 // shim for using process in browser
@@ -1482,7 +1521,7 @@ process.umask = function() { return 0; };
 
 
 /***/ }),
-/* 5 */
+/* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global, process) {(function (global, undefined) {
@@ -1672,10 +1711,10 @@ process.umask = function() { return 0; };
     attachTo.clearImmediate = clearImmediate;
 }(typeof self === "undefined" ? typeof global === "undefined" ? this : global : self));
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1), __webpack_require__(4)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1), __webpack_require__(5)))
 
 /***/ }),
-/* 6 */
+/* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var apply = Function.prototype.apply;
@@ -1728,45 +1767,22 @@ exports._unrefActive = exports.active = function(item) {
 };
 
 // setimmediate attaches itself to the global object
-__webpack_require__(5);
+__webpack_require__(6);
 exports.setImmediate = setImmediate;
 exports.clearImmediate = clearImmediate;
 
-
-/***/ }),
-/* 7 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var m = __webpack_require__(0)
-
-var User = {
-    list: [],
-    loadList: function(){
-        //User.list = [{"firstName":"John", "lastName":"Doe"},{"firstName":"Marry","lastName":"Me"}]
-        return m.request({
-            method: "GET",
-            url: "http://rem-rest-api.herokuapp.com/api/users",
-            withCredentials: true
-        })
-        .then(function(result){
-            User.list = result.data
-        })
-    }
-}
-
-module.exports = User
 
 /***/ }),
 /* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var m = __webpack_require__(0)
-var UserList = __webpack_require__(3)
-var UserForm = __webpack_require__(2)
+var UserList = __webpack_require__(4)
+var UserForm = __webpack_require__(3)
 
-m.route(document.body,"/edit",{
+m.route(document.body,"/list",{
     "/list": UserList,
-    "/edit": UserForm,
+    "/edit/:id": UserForm,
 })
 
 /***/ })

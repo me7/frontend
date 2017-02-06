@@ -92,3 +92,8 @@ Note:
 
 ### 14  grid
 * just a simpel 2*2 grid (part of exam 1)
+
+### 15 route take 2
+* route can contain route parameter {"/edit/:id": UserForm} can access id from vnode.attrs.id
+* m.request({url:"abc.com/:id}) can substitue :id using data{id: id}
+* m("a",{href: "/edit/"+u.id, oncreate: m.route.link} m.route.link will prepend hostname to link
