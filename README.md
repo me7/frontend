@@ -97,3 +97,5 @@ Note:
 * route can contain route parameter {"/edit/:id": UserForm} can access id from vnode.attrs.id
 * m.request({url:"abc.com/:id}) can substitue :id using data{id: id}
 * m("a",{href: "/edit/"+u.id, oncreate: m.route.link} m.route.link will prepend hostname to link
+* m.withAttr("value",func()) to use component value as property
+* *BUG* in Chrome have to press save 2 time. Firefox is OK
