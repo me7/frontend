@@ -1,0 +1,28 @@
+<html>
+<body>
+<script src="mithril.min.js"></script>
+<script>
+
+    var Index = {
+        view: function(){
+            return m("a",{href: "#!/sub"},"go to sub page")
+        }
+    }
+
+    var SubPage = {
+        view: function(){
+            return m("",[
+                m("h1","this is sub page"),
+                m("a",{href: "#!/index"}, "go to index page")
+            ])
+        }
+    }
+
+
+    m.route(document.body,"/index",{
+        "/sub": SubPage,
+        "/index": Index
+    })
+</script>
+</body>
+</html>
