@@ -61,3 +61,23 @@ Note:
 * parameter of {object} -> method, url, data, ... [see more](http://mithril.js.org/request.html)
 * it's return [Promise](http://mithril.js.org/promise.html) so you can use .then .catch .all
 * #WHY always get "Item not found" when query (nothing in cookie)
+
+
+### 10 [tutorial part 1](http://mithril.js.org/simple-application.html)
+* it's same as link above, just all in one file
+* mithril event name is all lower case. e.g. onclick, oninit
+* In User.loadList used to try this.list = [....] but not work. have to use User.list =[...]
+
+### 11 tutorial part 2
+* same as part 1. just use m.request instead of mock User
+* javascript use camelCase name. e.g. withCredential: true
+* Array.map(func) mean apply func to every member of array
+* use return for every Promise function. So it's can cascade with other Promise
+
+### 12 webpack
+* same as 11 wrote on many file instead of one file. Then use `webpack src/index.js app.js -p` to combine
+* [benefit for code navigation](http://mithril.js.org/simple-application.html) but have overhead of var xx = require(path/to/file)
+* Another overhead is each file you have to specify module.exports =
+* for require relative path, use ./ for current directory. e.g. var UserList = require("./view/UserList)
+* m.render(vnodes) but m.mount(component)
+* <link href="styles.css" rel="stylesheet" /> have to put in <head> tag

@@ -1,0 +1,40 @@
+<html>
+    <body>
+        <script src="../mithril.min.js"></script>
+
+<script>
+var User = {
+    list: [],
+    loadList: function(){
+        return m.request({
+            method: "GET",
+            url: "http://rem-rest-api.herokuapp.com/api/users",
+            withCredentials: true
+        })
+        .then(function(result){
+            console.log(result)
+            User.list = result.data
+        })
+    }
+}
+
+var UserList = {
+    oninit: User.loadList,
+    view: function(){
+        return m(".user-list",User.list.map(function(u){
+            return m(".user-list-item",u.firstName + " " + u.lastName)
+        }))
+    }
+}
+
+m.mount(document.body, UserList)
+</script>
+
+<style>
+.user-list-item:hover{text-decoration: underline}
+.user-list-item{border: 1px solid #ddd; padding: 8px 15px}
+</style>
+
+
+    </body>
+</html>
