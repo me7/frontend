@@ -99,3 +99,13 @@ Note:
 * m("a",{href: "/edit/"+u.id, oncreate: m.route.link} m.route.link will prepend hostname to link
 * m.withAttr("value",func()) to use component value as property
 * *BUG* in Chrome have to press save 2 time. Firefox is OK
+
+### 16 es6
+* node 6 and chrome 56 can run es6 **FAIL**
+
+### 17 [simple application](http://mithril.js.org/simple-application.html)
+* rewrite same app 3rd time just to see what I cannot remember
+* how to put route on each use? m("a",{href:"/edit/"+u.id, oncreate:m.route.link})
+* how to receive id from URL? oninit: function(vnode){this.id = vnode.attrs.id}
+* how to bound model value to component? m.withAttr("value",function(v){state.value = v})
+* use vnode.children to set layout

@@ -1,0 +1,17 @@
+{
+  "name": "17-layout",
+  "version": "1.0.0",
+  "main": "index.js",
+  "dependencies": {
+    "mithril": "^1.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "dev": "webpack src/index.js app.js -w -d",
+    "build": "webpack src/index.js app.js -p"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
